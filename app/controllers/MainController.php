@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 
-class Main extends App
+class MainController extends AppController
 {
     //public $layout = 'main';
     public function indexAction()

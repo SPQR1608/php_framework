@@ -75,6 +75,7 @@ class Router
                 $action = self::lowerCamelCase(self::$route['action']) . 'Action';
                 if (method_exists($cObj, $action)) {
                     $cObj->$action();
+                    $cObj->getView();
                 } else {
                     echo "Метод <b>$controller::$action</b> не найден";
                 }
@@ -115,9 +116,8 @@ class Router
             $params = explode('&', $url, 2);
             if (false === strpos($params[0], '=')) {
                 return rtrim($params[0], '/');
-            } else {
-                return '';
             }
         }
+        return '';
     }
 }

@@ -29,12 +29,17 @@ class Db
 
     protected function __construct()
     {
+        require LIBS . '/RedBeanPHP5_6_2/rb.php';
         $db = require ROOT . '/config/config_db.php';
-        $options = [
+        \R::setup($db['dsn'], $db['user'], $db['pass']);
+        \R::freeze(TRUE);
+        //\R::fancyDebug(TRUE);
+
+        /*$options = [
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
         ];
-        $this->pdo = new \PDO($db['dsn'], $db['user'], $db['pass'], $options);
+        $this->pdo = new \PDO($db['dsn'], $db['user'], $db['pass'], $options);*/
 
     }
 
@@ -49,11 +54,7 @@ class Db
         return self::$instance;
     }
 
-    /**
-     * @param string $sql
-     * @param array $params
-     * @return bool
-     */
+    /*
     public function execute($sql, $params = [])
     {
         self::$countSql++;
@@ -62,11 +63,6 @@ class Db
         return $stmt->execute($params);
     }
 
-    /**
-     * @param string $sql
-     * @param array $params
-     * @return array
-     */
     public function query($sql, $params = [])
     {
         self::$countSql++;
@@ -78,5 +74,5 @@ class Db
         }
 
         return [];
-    }
+    }*/
 }

@@ -16,9 +16,13 @@ class MainController extends AppController
         //$posts = $model->findAll();
         //$post = $model->findOne(2, 'category_id');
         //$posts = $model->findBySql("SELECT * FROM {$model->table} WHERE title LIKE ?", ['%то%']);
-        $posts = $model->findLike('те', 'title');
+        //$posts = $model->findLike('те', 'title');
 
-        $title = 'Main Page';
-        $this->set(compact('title', 'posts'));
+        $posts = \R::findAll('posts');
+        $menu = $this->menu;
+
+        $this->setMeta('Main Page', 'Description', 'Keywords');
+        $meta = $this->meta;
+        $this->set(compact('posts', 'menu', 'meta'));
     }
 }

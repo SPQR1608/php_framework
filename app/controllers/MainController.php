@@ -1,6 +1,8 @@
 <?php
 namespace app\controllers;
 
+use app\models\Main;
+
 class MainController extends AppController
 {
     //public $layout = 'main';
@@ -9,11 +11,14 @@ class MainController extends AppController
         //$this->layout = false;
         //$this->view = 'test';
 
-        $name = 'VARS';
-        $color = [
-            '1' => 'red',
-            '2' => 'blue',
-        ];
-        $this->set(compact('name', 'color'));
+        $model = new Main;
+
+        //$posts = $model->findAll();
+        //$post = $model->findOne(2, 'category_id');
+        //$posts = $model->findBySql("SELECT * FROM {$model->table} WHERE title LIKE ?", ['%то%']);
+        $posts = $model->findLike('те', 'title');
+
+        $title = 'Main Page';
+        $this->set(compact('title', 'posts'));
     }
 }

@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link href="/css/main.css" rel="stylesheet"/>
-    <title><?=$meta['title']?></title>
-    <meta name="description" content="<?=$meta['desc']?>">
-    <meta name="keywords" content="<?=$meta['keywords']?>">
+    <?php \vendor\core\base\View::getMeta();?>
 </head>
 <body>
 <div class="container">
@@ -26,12 +24,11 @@
     <?php endif; ?>
     <h1>Default</h1>
     <?= $content ?>
-    <? //= debug(\vendor\core\Db::$countSql) ?>
-    <? //= debug(\vendor\core\Db::$queries) ?>
 </div>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+<?php foreach ($scripts as $script) {echo $script;}?>
 </body>
 </html>

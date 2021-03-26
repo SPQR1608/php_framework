@@ -42,4 +42,17 @@ abstract class Controller
     {
         $this->vars = $vars;
     }
+
+    public function isAjax()
+    {
+        // NOT WORK WITH FETCH
+        //return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+        return isset($_POST['fetch']) && $_POST['fetch'] === 'y';
+    }
+
+    public function loadView($view, $vars = [])
+    {
+        extract($vars);
+        require APP . "/views/{$this->route['controller']}/{$view}.php";
+    }
 }

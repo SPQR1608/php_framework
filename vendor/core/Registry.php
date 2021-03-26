@@ -6,9 +6,12 @@ namespace vendor\core;
 
 class Registry
 {
-    public static $objects = [];
+    use TSingleton;
 
-    protected static $instance;
+    /**
+     * @var array
+     */
+    public static $objects = [];
 
     protected function __construct()
     {
@@ -18,14 +21,6 @@ class Registry
         }
     }
 
-    public static function instance()
-    {
-        if (self::$instance === null) {
-            self::$instance = new self;
-        }
-        return self::$instance;
-    }
-
     public function getList()
     {
         echo '<pre>';
@@ -33,6 +28,10 @@ class Registry
         echo '</pre>';
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function __get($name)
     {
         if (is_object(self::$objects[$name])) {
@@ -40,6 +39,10 @@ class Registry
         }
     }
 
+    /**
+     * @param $name
+     * @param $object
+     */
     public function __set($name, $object)
     {
         if (!isset(self::$objects[$name])) {

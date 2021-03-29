@@ -11,7 +11,6 @@
         <?php endforeach;?>
     <?php endif;?>
 </div>
-
 <script>
     document.querySelector('#send').addEventListener('click', event => {
         fetch('/main/ajax/', {

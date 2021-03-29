@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * TODO add error categories
+ */
 
 namespace vendor\core;
 
@@ -19,13 +21,25 @@ class ErrorHandler
         set_exception_handler([$this, 'exceptionHandler']);
     }
 
+    /**
+     * @param $errno
+     * @param $errstr
+     * @param $errfile
+     * @param $errline
+     * @return bool
+     */
     public function errorHandler($errno, $errstr, $errfile, $errline)
     {
         $this->writeLog($errstr, $errfile, $errline, $errno);
-        $this->displayError($errno, $errstr, $errfile, $errline);
+        if (DEBUG || in_array($errno, [E_USER_ERROR, E_RECOVERABLE_ERROR])) {
+            $this->displayError($errno, $errstr, $errfile, $errline);
+        }
         return true;
     }
 
+    /**
+     *
+     */
     public function fataErrorHandler()
     {
         $error = error_get_last();
@@ -39,17 +53,33 @@ class ErrorHandler
         }
     }
 
+    /**
+     * @param $e
+     */
     public function exceptionHandler($e)
     {
         $this->writeLog( $e->getMessage(), $e->getFile(),$e->getLine(), $e->getCode());
         $this->displayError('Exception', $e->getMessage(), $e->getFile(), $e->getLine(), $e->getCode());
     }
 
+    /**
+     * @param string $errstr
+     * @param string $errfile
+     * @param string $errline
+     * @param int $errno
+     */
     protected function writeLog($errstr = '', $errfile = '', $errline = '', $errno = 0)
     {
         error_log("[". date('Y-m-d H:i:s') . "] Текст ошибки: {$errstr} | Файл: {$errfile} | Строка: {$errline}\n========================\n", 3, ROOT . '/tmp/errors.log');
     }
 
+    /**
+     * @param $errno
+     * @param $errstr
+     * @param $errfile
+     * @param $errline
+     * @param int $response
+     */
     protected function displayError($errno, $errstr, $errfile, $errline, $response = 500)
     {
         http_response_code($response);

@@ -12,10 +12,10 @@ class MainController extends AppController
         $model = new Main;
         //\R::fancyDebug(true);
 
-        $posts = App::$app->cache->get('posts');
+        $posts = App::$app->cache->get($model->table);
         if (!$posts) {
-            $posts = \R::findAll('posts');
-            App::$app->cache->set('posts', $posts);
+            $posts = \R::findAll($model->table);
+            App::$app->cache->set($model->table, $posts);
         }
 
         $menu = $this->menu;

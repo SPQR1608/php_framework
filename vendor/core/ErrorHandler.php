@@ -84,7 +84,7 @@ class ErrorHandler
     {
         http_response_code($response);
 
-        if ($response == 404) {
+        if ($response == 404 && !DEBUG) {
             require APP . '/views/errors/404.html';
             die;
         }

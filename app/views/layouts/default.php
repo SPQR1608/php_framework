@@ -15,14 +15,20 @@
 </head>
 <body>
 <div class="container">
-    <?php if (!empty($menu)): ?>
+    <?//php if (!empty($menu)): ?>
         <ul class="nav nav-pills">
-            <?php foreach ($menu as $item): ?>
-                <li role="presentation"><a href="<?= $item['id'] ?>"><?= $item['title'] ?></a></li>
-            <?php endforeach; ?>
+            <li><a href="/">Home</a></li>
+            <li><a href="/page/about/">About</a></li>
+            <li><a href="/admin/">Admin</a></li>
+            <li><a href="/user/signup/">Signup</a></li>
+            <li><a href="/user/login/">Login</a></li>
+            <li><a href="/user/logout/">Logout</a></li>
+            <?php /*foreach ($menu as $item): */?><!--
+                <li role="presentation"><a href="<?/*= $item['id'] */?>"><?/*= $item['title'] */?></a></li>
+            --><?php /*endforeach; */?>
         </ul>
-    <?php endif; ?>
-    <h1>Default</h1>
+    <?//php endif; ?>
+    <?//=$h1 ? "<h1>$h1</h1>" : ''?>
     <?= $content ?>
 </div>
 <!-- Latest compiled and minified JavaScript -->

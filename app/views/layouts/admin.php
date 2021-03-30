@@ -15,13 +15,14 @@
 </head>
 <body>
 <div class="container">
-    <?php if (!empty($menu)): ?>
         <ul class="nav nav-pills">
-            <?php foreach ($menu as $item): ?>
-                <li role="presentation"><a href="<?= $item['id'] ?>"><?= $item['title'] ?></a></li>
-            <?php endforeach; ?>
+            <li><a href="/">Home</a></li>
+            <li><a href="/page/about/">About</a></li>
+            <li><a href="/admin/">Admin</a></li>
+            <?php /*foreach ($menu as $item): */?><!--
+                <li role="presentation"><a href="<?/*= $item['id'] */?>"><?/*= $item['title'] */?></a></li>
+            --><?php /*endforeach; */?>
         </ul>
-    <?php endif; ?>
     <h1>Admin panel</h1>
     <?=$content?>
 </div>

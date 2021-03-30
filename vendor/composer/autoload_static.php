@@ -15,13 +15,9 @@ class ComposerStaticInit9e2afbc665e479c4862c21d98b099bc5
         array (
             'app\\' => 4,
         ),
-        'P' => 
+        'V' => 
         array (
-            'Psr\\Log\\' => 8,
-        ),
-        'M' => 
-        array (
-            'Monolog\\' => 8,
+            'Valitron\\' => 9,
         ),
     );
 
@@ -34,13 +30,9 @@ class ComposerStaticInit9e2afbc665e479c4862c21d98b099bc5
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
-        'Psr\\Log\\' => 
+        'Valitron\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Monolog\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+            0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
         ),
     );
 

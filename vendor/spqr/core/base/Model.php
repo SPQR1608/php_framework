@@ -4,6 +4,7 @@
 namespace spqr\core\base;
 
 use spqr\core\Db;
+use Valitron\Validator;
 
 abstract class Model
 {
@@ -23,9 +24,51 @@ abstract class Model
      */
     protected $pk = 'id';
 
+    /**
+     * @var array
+     */
+    public $attributes = [];
+
+    /**
+     * @var array
+     */
+    public $errors = [];
+
+    /**
+     * @var array
+     */
+    public $rules = [];
+
+
     public function __construct()
     {
         $this->pdo = Db::instance();
+    }
+
+    /**
+     * @param $data
+     */
+    public function load($data)
+    {
+        foreach ($this->attributes as $name => $value) {
+            if (isset($data[$name])) {
+                $this->attributes[$name] = $data[$name];
+            }
+        }
+    }
+
+    /**
+     * @param array $data
+     * @return bool
+     */
+    public function validate($data) {
+        $v = new Validator($data);
+        $v->rules($this->rules);
+        if ($v->validate()) {
+            return true;
+        }
+        $this->errors = $v->errors();
+        return false;
     }
 
     /**

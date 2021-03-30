@@ -6,5 +6,8 @@
             "spqr\\": "vendor/spqr",
             "app\\": "app"
         }
+    },
+    "require": {
+        "vlucas/valitron": "^1.4"
     }
 }

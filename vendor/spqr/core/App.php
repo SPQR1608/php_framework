@@ -1,10 +1,10 @@
 <?php
 
 
-namespace vendor\core;
+namespace spqr\core;
 
-use vendor\core\Registry;
-use vendor\core\ErrorHandler;
+use spqr\core\Registry;
+use spqr\core\ErrorHandler;
 
 class App
 {

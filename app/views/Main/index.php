@@ -1,19 +1,19 @@
 <div class="container">
     <button class="btn btn-default" id="send">Send</button>
-    <?php new \vendor\widgets\menu\Menu([
+    <?php new \spqr\widgets\menu\Menu([
             'tpl' => 'select',
             'container' => 'select',
             'cache' => 3600,
             'table' => 'categories',
             'class' => 'main-menu'
     ])?>
-    <?php new \vendor\widgets\menu\Menu([
+    <?php /*new \spqr\widgets\menu\Menu([
         'tpl' => 'menu',
         'container' => 'ul',
         'cache' => 3600,
         'table' => 'categories',
         'class' => 'main-menu'
-    ])?>
+    ])*/?>
     <?php if (!empty($posts)):?>
         <?php foreach ($posts as $post):?>
             <div class="panel panel-default">

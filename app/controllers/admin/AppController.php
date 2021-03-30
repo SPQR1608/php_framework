@@ -4,7 +4,7 @@
 namespace app\controllers\admin;
 
 
-use vendor\core\base\Controller;
+use spqr\core\base\Controller;
 
 class AppController extends Controller
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace vendor\core;
+namespace spqr\core;
 
 
 class Db

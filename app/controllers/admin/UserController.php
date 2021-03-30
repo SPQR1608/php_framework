@@ -4,7 +4,7 @@
 namespace app\controllers\admin;
 
 
-use vendor\core\base\View;
+use spqr\core\base\View;
 
 class UserController extends AppController
 {

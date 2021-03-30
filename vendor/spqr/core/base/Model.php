@@ -1,9 +1,9 @@
 <?php
 
 
-namespace vendor\core\base;
+namespace spqr\core\base;
 
-use vendor\core\Db;
+use spqr\core\Db;
 
 abstract class Model
 {

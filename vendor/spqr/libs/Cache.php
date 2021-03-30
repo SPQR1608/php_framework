@@ -1,7 +1,7 @@
 <?php
 
 
-namespace vendor\libs;
+namespace spqr\libs;
 
 
 class Cache

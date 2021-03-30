@@ -1,10 +1,10 @@
 <?php
 
 
-namespace vendor\widgets\menu;
+namespace spqr\widgets\menu;
 
 
-use vendor\libs\Cache;
+use spqr\libs\Cache;
 
 class Menu
 {

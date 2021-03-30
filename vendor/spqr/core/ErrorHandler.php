@@ -3,7 +3,7 @@
  * TODO add error categories
  */
 
-namespace vendor\core;
+namespace spqr\core;
 
 
 class ErrorHandler

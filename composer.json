@@ -1,0 +1,10 @@
+{
+    "name": "spqr/spqr",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "spqr\\": "vendor/spqr",
+            "app\\": "app"
+        }
+    }
+}
